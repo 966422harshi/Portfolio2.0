@@ -1,0 +1,52 @@
+/* styles.css */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 200px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: skillAnimation 1s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+.rotating-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: rotateIcon 4s linear infinite; /* Add rotation animation */
+}
+
+.skill-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@keyframes skillAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,171 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(images/first.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 50rem; */
+    overflow-x: hidden;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the navigation bar */
+nav {
+    position: sticky;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem 0rem;
+}
+
+/* Style the navigation list */
+ul.nav-list {
+    display: flex;
+    /* justify-content: right; */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Style each list item (nav item) */
+ul.nav-list li {
+    margin: 0 20px;
+}
+
+ul.nav-list li a:hover{
+   color: rgb(174, 6, 6);
+}
+
+ul.nav-list li a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style of whole search box  */
+.search_box input{
+    padding: 5px 15px; ;
+}
+
+
+/* Style the search button */
+.search-button {
+    background-color: rgb(174, 6, 6);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hover effect for the search button */
+.search-button:hover {
+    background-color: #961b19;
+}
+
+#signIn_btn{
+    color: rgb(174, 6, 6);
+    font-weight: 400;
+}
+
+
+
+/* Landing content
+
+.landing_content{
+    display: flex;
+    flex-direction: row;
+    margin-top: 21rem;
+    margin-left: 10rem;
+    font-size: xx-large;
+    line-height: 3em;
+}
+
+.homeText{
+    color: white;
+}
+
+.homeText h1{
+    color: rgb(174, 6, 6);
+}
+
+.btnRegister a{
+    text-decoration: none;
+    color: white;
+}
+
+.btnRegister {
+    margin-left: 30rem;
+    height: 2rem;
+    background: rgb(174, 6, 6);
+    background-image: -webkit-linear-gradient(top, #f00e16, #d40c0c);
+    background-image: -moz-linear-gradient(top, #f00e16, #d40c0c);
+    background-image: -ms-linear-gradient(top, #f00e16, #d40c0c);
+    background-image: -o-linear-gradient(top, #f00e16, #d40c0c);
+    background-image: linear-gradient(to bottom, #f00e16, #d40c0c);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+.btnRegister:hover {
+    background: #f03e3e;
+    background-image: -webkit-linear-gradient(top, #f03e3e, #d42222);
+    background-image: -moz-linear-gradient(top, #f03e3e, #d42222);
+    background-image: -ms-linear-gradient(top, #f03e3e, #d42222);
+    background-image: -o-linear-gradient(top, #f03e3e, #d42222);
+    background-image: linear-gradient(to bottom, #f03e3e, #d42222);
+    text-decoration: none;
+  } */
+  
+  /* Landing content */
+
+.landing_content{
+    display: inline-block;
+    margin-top: 18rem;
+    margin-left: 10rem;
+    /* line-height: 3em; */
+}
+
+.homeText{
+    color: white;
+    /* font-family: 'Libre Baskerville', serif; */
+    /* font-family: 'Outfit', sans-serif; */
+    font-family: 'Barlow Condensed', sans-serif;
+    /* letter-spacing: 0.5rem; */
+    font-size: 4rem;
+}
+
+.homeText h1{
+    color: rgb(174, 6, 6);
+}
+
+.btnRegister a{
+    text-decoration: none;
+    color: white;
+}
+
+.btnRegister {
+    background: rgb(174, 6, 6);
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4.5rem;
+    padding: 0.5rem 2rem;
+  }
+  
+.btnRegister:hover {
+    background: #f03e3e;
+    
+  }
