@@ -374,15 +374,41 @@ body {
     font-weight: 800;
     line-height: 1.2;
     color: var(--text-primary);
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
 }
 
+/* Typewriter sits on its own fixed-height line — image NEVER shifts */
+.hero-role-line {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 3rem;           /* fixed — won't reflow layout */
+    margin-bottom: 1.2rem;
+    overflow: hidden;       /* clamp any overflow */
+}
+
 .typewriter {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    font-weight: 700;
     color: var(--accent);
-    display: inline-block;
-    min-height: 1.2em;
-    min-width: 2ch;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.typewriter-cursor {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    font-weight: 300;
+    color: var(--accent);
+    animation: blink-cursor 0.75s step-end infinite;
+    line-height: 1;
+    margin-left: 1px;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-subtitle {
