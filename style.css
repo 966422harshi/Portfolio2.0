@@ -220,6 +220,17 @@ body {
     color: var(--accent);
 }
 
+.nav-item.nav-gallery {
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nav-item.nav-gallery:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--accent);
+}
+
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
