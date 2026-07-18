@@ -5,24 +5,37 @@
 // ---- THEME TOGGLE ----
 (function () {
     const html = document.documentElement;
-    const btn  = document.getElementById('themeToggle');
     const KEY  = 'portfolio-theme';
 
-    // Apply saved or default theme
-    const saved = localStorage.getItem(KEY) || 'dark';
-    html.setAttribute('data-theme', saved);
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        const icon = document.getElementById('themeIcon');
+        if (!icon) return;
+        // Swap icon class
+        if (theme === 'light') {
+            icon.className = 'fa-solid fa-sun';
+        } else {
+            icon.className = 'fa-solid fa-moon';
+        }
+        // Replay spin animation
+        icon.style.animation = 'none';
+        icon.offsetWidth; // reflow
+        icon.style.animation = '';
+    }
 
+    // Apply on load
+    const saved = localStorage.getItem(KEY) || 'dark';
+    applyTheme(saved);
+
+    // Toggle on click
+    const btn = document.getElementById('themeToggle');
     if (!btn) return;
 
     btn.addEventListener('click', () => {
-        const current = html.getAttribute('data-theme');
+        const current = html.getAttribute('data-theme') || 'dark';
         const next    = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
         localStorage.setItem(KEY, next);
-
-        // Bounce animation on the button
-        btn.style.transform = 'scale(0.85) rotate(20deg)';
-        setTimeout(() => { btn.style.transform = ''; }, 300);
+        applyTheme(next);
     });
 })();
 

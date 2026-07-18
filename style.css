@@ -315,18 +315,20 @@ body {
     border-color: var(--accent);
 }
 
-/* ---- Nav Right: theme toggle + hamburger ---- */
+/* ---- Nav Right: theme toggle + hamburger (always on the far right) ---- */
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin-left: 1rem;
+    flex-shrink: 0;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button — clean pill style */
 .theme-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     border: 1.5px solid var(--border-color);
     background: var(--bg-card);
     color: var(--text-secondary);
@@ -334,49 +336,58 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    position: relative;
-    overflow: hidden;
+    font-size: 1.05rem;
     flex-shrink: 0;
+    outline: none;
+    /* Icon swap animation */
+    transition: border-color 0.25s ease, background 0.25s ease,
+                color 0.25s ease, transform 0.25s ease !important;
 }
 
 .theme-toggle:hover {
     border-color: var(--accent);
-    background: rgba(99, 102, 241, 0.12);
+    background: rgba(99, 102, 241, 0.14);
     color: var(--accent);
-    transform: rotate(15deg) scale(1.05);
+    transform: scale(1.1);
 }
 
-/* Show/hide icons based on current theme */
-.theme-icon {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease !important;
+/* Sun color in light mode */
+[data-theme="light"] .theme-toggle {
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.35);
+    background: rgba(245, 158, 11, 0.08);
+}
+[data-theme="light"] .theme-toggle:hover {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.15);
+    color: #d97706;
+    transform: scale(1.1) rotate(12deg);
 }
 
-/* Dark theme: show moon, hide sun */
-:root .theme-icon-dark,
-[data-theme="dark"] .theme-icon-dark  { transform: scale(1);   opacity: 1; }
-:root .theme-icon-light,
-[data-theme="dark"] .theme-icon-light { transform: scale(0) rotate(90deg); opacity: 0; }
-
-/* Light theme: show sun, hide moon */
-[data-theme="light"] .theme-icon-dark  { transform: scale(0) rotate(-90deg); opacity: 0; }
-[data-theme="light"] .theme-icon-light { transform: scale(1);   opacity: 1; color: #f59e0b; }
+/* Icon spin animation on switch */
+@keyframes icon-spin {
+    0%   { transform: rotate(-30deg) scale(0.6); opacity: 0; }
+    100% { transform: rotate(0deg)   scale(1);   opacity: 1; }
+}
+.theme-toggle i {
+    animation: icon-spin 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
 
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
     color: var(--text-primary);
     cursor: pointer;
-    padding: 4px 8px;
+    padding: 5px 9px;
     border-radius: 8px;
+    line-height: 1;
+    border: none;
+    background: transparent;
 }
 
 .menu-toggle:hover {
     background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
 }
 
 @media (max-width: 768px) {
