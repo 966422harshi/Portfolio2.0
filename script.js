@@ -2,6 +2,30 @@
    HARSHITA SHEKHAWAT – PORTFOLIO SCRIPT
 ============================================ */
 
+// ---- THEME TOGGLE ----
+(function () {
+    const html = document.documentElement;
+    const btn  = document.getElementById('themeToggle');
+    const KEY  = 'portfolio-theme';
+
+    // Apply saved or default theme
+    const saved = localStorage.getItem(KEY) || 'dark';
+    html.setAttribute('data-theme', saved);
+
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        const next    = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+
+        // Bounce animation on the button
+        btn.style.transform = 'scale(0.85) rotate(20deg)';
+        setTimeout(() => { btn.style.transform = ''; }, 300);
+    });
+})();
+
 // ---- TYPEWRITER EFFECT ----
 const roles = [
     'Software Developer',

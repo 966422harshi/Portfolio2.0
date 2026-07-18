@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    <!-- Prevent flash of wrong theme -->
+    <script>
+        (function(){
+            const saved = localStorage.getItem('portfolio-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+        })();
+    </script>
 </head>
 
 <body>
@@ -28,7 +35,13 @@
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">Harshita<span>.</span></a>
-            <span class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</span>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon theme-icon-dark"><i class="fa-solid fa-moon"></i></span>
+                    <span class="theme-icon theme-icon-light"><i class="fa-solid fa-sun"></i></span>
+                </button>
+                <span class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</span>
+            </div>
             <nav class="nav-links" id="navLinks">
                 <a href="#home" class="nav-item active">Home</a>
                 <a href="#about" class="nav-item">About</a>
