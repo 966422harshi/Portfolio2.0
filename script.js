@@ -4,34 +4,38 @@
 
 // ---- THEME TOGGLE ----
 (function () {
-    const html = document.documentElement;
-    const KEY  = 'portfolio-theme';
+    const html  = document.documentElement;
+    const KEY   = 'portfolio-theme';
 
     function applyTheme(theme) {
         html.setAttribute('data-theme', theme);
-        const icon = document.getElementById('themeIcon');
-        if (!icon) return;
-        // Swap icon class
-        if (theme === 'light') {
-            icon.className = 'fa-solid fa-sun';
-        } else {
-            icon.className = 'fa-solid fa-moon';
+
+        const icon  = document.getElementById('themeIcon');
+        const label = document.getElementById('themeLabel');
+
+        if (icon) {
+            // Swap icon
+            icon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            // Replay spin animation
+            icon.style.animation = 'none';
+            void icon.offsetWidth; // force reflow
+            icon.style.animation  = '';
         }
-        // Replay spin animation
-        icon.style.animation = 'none';
-        icon.offsetWidth; // reflow
-        icon.style.animation = '';
+
+        if (label) {
+            label.textContent = theme === 'light' ? 'Light' : 'Dark';
+        }
     }
 
-    // Apply on load
+    // Apply saved preference on load
     const saved = localStorage.getItem(KEY) || 'dark';
     applyTheme(saved);
 
-    // Toggle on click
+    // Wire up button
     const btn = document.getElementById('themeToggle');
     if (!btn) return;
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function () {
         const current = html.getAttribute('data-theme') || 'dark';
         const next    = current === 'dark' ? 'light' : 'dark';
         localStorage.setItem(KEY, next);

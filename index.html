@@ -44,12 +44,7 @@
                 <a href="./Image Gallery/index.html" class="nav-item nav-gallery" target="_blank"><i class="fa-solid fa-palette" style="margin-right:6px;"></i> Gallery</a>
                 <a href="#contact" class="nav-item">Contact</a>
             </nav>
-            <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-                    <i class="fa-solid fa-moon" id="themeIcon"></i>
-                </button>
-                <span class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</span>
-            </div>
+            <span class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</span>
         </div>
     </header>
 
@@ -721,6 +716,12 @@
             <p class="footer-copy">© 2024 All rights reserved. Made with <i class="fa-solid fa-heart"></i> and lots of ☕</p>
         </div>
     </footer>
+
+    <!-- ========== THEME TOGGLE FLOATING BUTTON ========== -->
+    <button class="theme-fab" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+        <span class="theme-fab-label" id="themeLabel">Dark</span>
+    </button>
 
     <script src="script.js"></script>
 </body>
